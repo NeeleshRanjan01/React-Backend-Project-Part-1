@@ -1,5 +1,3 @@
-//Core Modules are the build in modules which are comes with Node.js installation basically there are two types of core modules 1st is "global core module" which is pre activated or pre installed library and "non global core module" are the module who's library need to be install when we required.
-
 const express = require("express")
 
 const cors = require("cors");

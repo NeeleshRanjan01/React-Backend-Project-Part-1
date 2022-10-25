@@ -1,9 +1,12 @@
 //Core Modules are the build in modules which are comes with Node.js installation basically there are two types of core modules 1st is "global core module" which is pre activated or pre installed library and "non global core module" are the module who's library need to be install when we required.
 
-const http = require("http");
+const express = require("express")
 
 const cors = require("cors");
 
+const app = express()
+
+app.use(cors());
 
 
 const text= 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).'
@@ -554,11 +557,7 @@ const data = [
     },
 ]
 
-let server = http.createServer((req, res) => {
-    res.writeHead(200, {'content-Type':'application\json()'})
-    res.write(JSON.stringify(data));
-    res.end();
-}).listen(process.env.PORT || 8080)
-
-server.use(cors());
+app.get("",(req, res) => {
+    res.status(200).send(data)
+}).listen(process.env.PORT || 4500)
 
